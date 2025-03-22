@@ -13,9 +13,7 @@
             min-height: 100vh;
             color: #fff;
             opacity: 0;
-            /* Initially hidden for fade-in */
             animation: fadeUp 0.8s ease-out forwards;
-            /* Fade-in animation */
 
         }
 
@@ -34,10 +32,8 @@
         .container {
             display: flex;
             gap: 10px;
-            /* Spacing between the cards */
             max-width: 80%;
             flex-wrap: wrap;
-            /* Ensures responsiveness for smaller screens */
             justify-content: center;
             align-items: stretch;
             margin: 0 auto;
@@ -62,7 +58,6 @@
             padding: 20px;
             font-size: 1rem;
             line-height: 1rem;
-            /* box-sizing: border-box; */
         }
         
 
@@ -84,8 +79,6 @@
         .items-center a {
             text-decoration: none;
             color: #0066cc;
-
-
         }
 
         .mr-3 {
@@ -93,7 +86,6 @@
             width: 1.25rem;
             height: 1.25rem;
             margin-right: .75rem;
-
         }
 
         label {
@@ -121,7 +113,6 @@
 
         .contact-form input,
         .contact-form textarea {
-            /* width: 80%; */
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
@@ -203,12 +194,12 @@
             </form>
         </div>
     </div>
+<!--     fetching nav bar -->
     <script>
-        // Load header.html content into the 'header' div
         fetch('nav_bar.html')
             .then(response => response.text())
             .then(data => document.getElementById('nav_bar').innerHTML = data);
     </script>
+<!--     fetching nav bar -->
 </body>
-
 </html>
