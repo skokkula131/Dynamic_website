@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Profile</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <input type="text" id="name" placeholder="Enter your name">
+        <input type="text" id="email" placeholder="Enter your email">
+        <input type="text" id="DOB" placeholder="Enter your DOB">
+        <input type="text" id="nationality" placeholder="Enter your nationality">
+        <button id="insert_info" onclick="info_data()">Insert Info</button>
+        <div id="output">profile: </div>
+        <button id="info_btn" onclick="info_fn()">My Info Button</button>
+        <script>
+            let profiles = [];
+
+            function info_data() {
+                let profile = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    DOB: document.getElementById('DOB').value,
+                    nationality: document.getElementById('nationality').value,
+                    description: function() {
+                        return "Name: " + this.name + "<br>" +
+                               "Email: " + this.email + "<br>" +
+                               "DOB: " + this.DOB + "<br>" +
+                               "Nationality: " + this.nationality + "<br>";
+                    }
+                };
+                profiles.push(profile);
+            }
+
+            function info_fn() {
+                let output = "Profiles:<br>";
+                profiles.forEach(profile => {
+                    output += profile.description() + "<br>";
+                });
+                document.getElementById('output').innerHTML = output;
+            }
+        </script>
+    </body>
+</html>

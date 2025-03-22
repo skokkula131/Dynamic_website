@@ -1,0 +1,122 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eef2ff;
+    opacity: 0;
+    height: 100vh;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.body_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* Centers the content horizontally */
+    align-items: center;
+    /* Centers the content vertically */
+    gap: 30px;
+    /* margin-top: 2rem; */
+    height: 100vh;
+    background-color: #eef2ff;
+}
+
+
+.content {
+    text-align: center;
+    padding: 20px;
+    flex: 1;
+    /* Ensures equal width for content and profile image */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #212529;
+
+}
+
+.content p {
+    font-size: 1.2em;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #343f4a;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #0056b3;
+}
+
+.bio-box {
+    background-color: #ffffff;
+    padding: 30px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 25px;
+    max-width: 600px;
+    text-align: left;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 50px 20px;
+}
+
+.text-content {
+    max-width: 80%;
+    text-align: left;
+}
+
+
+.bio-box p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #495057;
+}
+
+.profile_img {
+    flex: 1;
+    /* Ensures equal width for content and profile image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_img img {
+    margin: 0;
+    /* Remove extra margin */
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    object-fit: cover;
+}

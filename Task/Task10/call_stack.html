@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        let taskStack = [];
+        function addTask() {
+            let taskInput = document.getElementById("taskInput").value;
+            if (taskInput === "") {
+                alert("Please enter a valid task!");
+                return;
+            }
+            taskStack.push(taskInput);
+            document.getElementById("taskInput").value = ""; // Clear input field
+            updateTaskList();
+        }
+        function undoTask() {
+            if (taskStack.length === 0) {
+                alert("No tasks to undo!");
+                return;
+            }
+            taskStack.pop();
+            updateTaskList();
+        }
+        function updateTaskList() {
+            let taskDisplay = document.getElementById("taskList");
+            if (taskStack.length === 0) {
+                taskDisplay.innerText = "No tasks in the pipeline.";
+            } else {
+                taskDisplay.innerText = "Current Tasks: " + taskStack.join(" → ");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+      <h2>Task Manager</h2>
+        <input type="text" id="taskInput" placeholder="Enter Task Name" />
+        <br>
+        <button onclick="addTask();">ADD Task</button>
+        <button onclick="undoTask();">UNDO Task</button>
+        <div id="taskList">No tasks in the pipeline.</div>
+    </div>
+</body>
+</html>

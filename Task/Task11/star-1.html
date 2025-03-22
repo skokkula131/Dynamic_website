@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>star</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div>
+            <h1>Star Triangle</h1>
+            <input type="number" id="input_box" placeholder="Enter a positive number" onkeyup="starTriangle()">
+            <div class="output" id="demo_div"></div>
+        </div>
+        <script>
+            function starTriangle() {
+                let text = "";
+                let n = document.getElementById("input_box").value;
+                for (let i = 0; i < n; i++) {
+                    for (let j = 0; j <= i; j++) {
+                        text += "* ";
+                    }
+                    text += "<br>";
+                }
+                document.getElementById("demo_div").innerHTML = text;
+            }
+        </script>
+    </body>
+</html>

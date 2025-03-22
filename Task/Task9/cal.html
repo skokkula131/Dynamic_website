@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+       
+    </head>
+    <body>
+        <h2>Grade Calculator</h2>
+        <input style="width: fit-content;" type="number" id="score" placeholder="Enter your score" min="0" max="100">
+        <button onclick="calculateGrade()">Calculate Grade</button>
+        <p>your grade:</p>
+        <p id="result"></p>
+        <script src="" async defer>
+            function calculateGrade() {
+            let score = parseInt(document.getElementById('score').value);
+            let grade = '';
+            if (score >= 80) {
+                grade = 'A';
+            } else if (score >= 60) {
+                grade = 'B';
+            } else if (score >= 40) {
+                grade = 'C';
+            } else {
+                grade = 'F';
+            }
+            document.getElementById('result').innerText = `Your grade is: ${grade}`;
+            }
+            </script>
+    </body>
+</html>

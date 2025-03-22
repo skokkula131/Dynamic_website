@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Random</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+       <input type="number" id="num1" placeholder="num 1 ">
+       <input type="number" id="num2" placeholder="num 2">
+       <button id="getnumber" onclick="getNumber()">Generate Random Number</button>  
+       <div id="result">Random number: </div>
+       <script>
+           function getNumber(){
+               let num1 = parseInt(document.getElementById('num1').value);
+               let num2 = parseInt(document.getElementById('num2').value);
+                   let y = Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
+                   document.getElementById('result').innerHTML = "Random number: " + y;
+           }
+       </script>
+    </body>
+</html>

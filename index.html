@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Write your CSS code in the designated file -->
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* aboutme css */
+        body {
+            background-color: #eef2ff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            /* Centers the content horizontally */
+        }
+
+        .skills-title {
+            font-size: 2 em;
+            margin-bottom: 30px;
+            /* text-align: ceter; */
+            /* Optional: Centers the title */
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: space-between;
+            
+        }
+
+        .frontend-section,
+        .backend-section {
+            /* background-color: #f8f9fa; */
+            padding: 10px 30px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 40%;
+            /* Adjust width as needed */
+            margin-bottom: 2rem;
+
+        }
+
+        .section-title {
+            display: flex;
+            align-items: left;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .skill-tag {
+            background-color: rgb(219, 234, 254);
+            color: rgb(30, 64, 175);
+            padding: 4px 10px;
+            border-radius: 15px;
+            margin: 5px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .about-section {
+            /* background-color: #f8f9fa; */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* aboutme css */
+    </style>
+</head>
+
+<body>
+    <!-- Write your HTML code here -->
+    <!-- nav bar starts -->
+    <div id="navbar"></div>
+    <!-- nav bar ends -->
+    <!-- body content starts-->
+    <div class="body_content">
+        <div class="content">
+            <h1>Shiva Karthik Kokkula</h1>
+            <p>Front-End Developer</p>
+            <div class="social-icons">
+                <a href="https://github.com/skokkula131" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-github ">
+                        <path
+                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                        </path>
+                        <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                    </svg> </a>
+                <a href="www.linkedin.com/in/shivakarthik-kokkula" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-linkedin">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="mailto:shivakarthik3600@gmail.com" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-mail">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+            <div class="bio-box">
+                <p>I'm a Passionate Front-End Developer with a knack for creating visually appealing, responsive, and
+                    user-friendly web interfaces. Skilled in leveraging modern technologies such as HTML, CSS,
+                    JavaScript, and frameworks to bring innovative designs to life.</p>
+
+            </div>
+
+        </div>
+        <div class="profile_img">
+            <img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D"
+                alt="shiva">
+        </div>
+    </div>
+    <!-- aboutme section -->
+    <div class="container">
+        <h2 class="skills-title">About Me</h2>
+        <div class="about-section">
+
+            <p>
+                With over 2 years of experience in software development, I specialize in building scalable web
+                applications and designing. I'm passionate about clean code, performance optimization, and creating
+                exceptional user experiences.
+            </p>
+            <p>
+                When I'm not coding, you can find me contributing to open-source projects, writing technical blog posts,
+                or exploring new technologies to expand my skill set.
+            </p>
+        </div>
+        <!-- skills section -->
+        <h2 class="skills-title">Skills</h2>
+        <div class="skills-container">
+            <div class="frontend-section">
+                <h3 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    Language
+                </h3>
+                <div class="skills-tags">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">bootstrap</span>
+                    <span class="skill-tag">JavaScript</span>
+
+                </div>
+            </div>
+            <div class="backend-section">
+                <h3 class="section-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Tools
+                </h3>
+                <div class="skills-tags">
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Photoshop</span>
+
+                </div>
+            </div>
+        </div>
+        <!-- more skills  -->
+        <div class="skills-container">
+            <div class="frontend-section">
+                <h3 class="section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000" transform="rotate(90)" class="icon">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M21.007 8.222A3.738 3.738 0 0 0 15.045 5.2a3.737 3.737 0 0 0 1.156 6.583 2.988 2.988 0 0 1-2.668 1.67h-2.99a4.456 4.456 0 0 0-2.989 1.165V7.4a3.737 3.737 0 1 0-1.494 0v9.117a3.776 3.776 0 1 0 1.816.099 2.99 2.99 0 0 1 2.668-1.667h2.99a4.484 4.484 0 0 0 4.223-3.039 3.736 3.736 0 0 0 3.25-3.687zM4.565 3.738a2.242 2.242 0 1 1 4.484 0 2.242 2.242 0 0 1-4.484 0zm4.484 16.441a2.242 2.242 0 1 1-4.484 0 2.242 2.242 0 0 1 4.484 0zm8.221-9.715a2.242 2.242 0 1 1 0-4.485 2.242 2.242 0 0 1 0 4.485z">
+                            </path>
+                        </g>
+                    </svg>
+                    Version Control Systems
+                </h3>
+                <div class="skills-tags">
+                    <span class="skill-tag">Github</span>
+
+                </div>
+            </div>
+            
+        </div>
+        <!-- skills section -->
+       
+    </div>
+    <!-- body content starts-->
+    <script>
+        // Load header.html content into the 'header' div
+        fetch('nav_bar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
+    </script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
