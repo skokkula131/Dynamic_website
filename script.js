@@ -1,7 +1,7 @@
 const works = {
   "task1": { "title": "Task 1", "url": "Task/Task1/index.html" },
   "task2": { "title": "Task 2", "url": "Task/Task2/index.html" },
-  "task3": { "title": "Task 3", "url": "Task/task3/hover_assign.html" },
+  "task3": { "title": "Task 3", "url": "Task/Task3/hover_assign.html" },
   "task4": { "title": "Task 4", "url": "Task/task4/js_1.html" },
   "task5": { "title": "Task 5", "url": "Task/task5/calc_js.html" },
   "task6": { "title": "Task 6", "url": "Task/task6/index.html" },
