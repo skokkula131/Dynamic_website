@@ -62,6 +62,7 @@
     const SCOPE = 'openid profile email';
 
     function loginWithGoogle() {
+        console.log("entered");
       const url = new URL("https://accounts.google.com/o/oauth2/v2/auth");
       url.searchParams.set("client_id", CLIENT_ID);
       url.searchParams.set("redirect_uri", REDIRECT_URI);
