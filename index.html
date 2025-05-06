@@ -76,7 +76,6 @@
             <button class="btn btn-primary" onclick="loginWithGoogle()">Login with Google</button>
             <pre id="output" style="margin-top:1rem; white-space:pre-wrap;"></pre>
 
-            <div class="social-icons"> ... </div>
             <div class="bio-box">
                 <p>I'm a Passionate Front-End Developer...</p>
             </div>
@@ -86,8 +85,6 @@
         </div>
     </div>
 
-    <!-- About & Skills Sections here (unchanged) -->
-
     <!-- Inject Navbar -->
     <script>
         fetch('nav_bar.html')
@@ -95,20 +92,33 @@
             .then(data => document.getElementById('navbar').innerHTML = data);
     </script>
 
-    <!-- ✅ Google OAuth + JWT Logic -->
+    <!-- ✅ Google OAuth + JWT Logic with nonce -->
     <script>
         const CLIENT_ID = '385129490778-vhac48l5qfcujq1ov8pvmaf1hn88ieen.apps.googleusercontent.com';
         const REDIRECT_URI = 'https://skokkula131.github.io/Dynamic_website';
         const RESPONSE_TYPE = 'id_token token';
         const SCOPE = 'openid profile email';
 
+        function generateNonce(length = 16) {
+            const charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += charset[Math.floor(Math.random() * charset.length)];
+            }
+            return result;
+        }
+
         function loginWithGoogle() {
+            const nonce = generateNonce();
+            sessionStorage.setItem("google_nonce", nonce);
+
             const url = new URL("https://accounts.google.com/o/oauth2/v2/auth");
             url.searchParams.set("client_id", CLIENT_ID);
             url.searchParams.set("redirect_uri", REDIRECT_URI);
             url.searchParams.set("response_type", RESPONSE_TYPE);
             url.searchParams.set("scope", SCOPE);
             url.searchParams.set("prompt", "consent");
+            url.searchParams.set("nonce", nonce); // ✅ required by Google
 
             window.location = url.toString();
         }
@@ -138,6 +148,12 @@
                 if (idToken) {
                     const decoded = decodeJWT(idToken);
                     output += "🔓 ID Token Payload:\n" + JSON.stringify(decoded, null, 2) + "\n\n";
+
+                    // Optional nonce validation (for production)
+                    const storedNonce = sessionStorage.getItem("google_nonce");
+                    if (decoded.nonce && storedNonce && decoded.nonce !== storedNonce) {
+                        output += "⚠️ Nonce mismatch! Token may not be secure.\n\n";
+                    }
                 }
 
                 if (accessToken) {
