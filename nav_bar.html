@@ -41,7 +41,8 @@
             <a class="nav-link" href="./project.html">Projects</a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-primary" id="googleLoginBtn">Login with Googlee</button>
+            <!-- ✅ Onclick uses function defined in main.js -->
+            <button class="btn btn-primary" onclick="loginWithGoogle()">Login with Googleee</button>
           </li>
         </ul>
       </div>
@@ -53,75 +54,11 @@
   </div>
 
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-          integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-          crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-          integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+pmkuT+0I5n0z4zF6Up0Lbo+07Q2+"
           crossorigin="anonymous"></script>
 
-  <!-- OAuth Script -->
-  <script>
-    const CLIENT_ID = '385129490778-vhac48l5qfcujq1ov8pvmaf1hn88ieen.apps.googleusercontent.com';
-    const REDIRECT_URI = 'https://skokkula131.github.io/Dynamic_website';
-    const RESPONSE_TYPE = 'id_token token';
-    const SCOPE = 'openid profile email';
-
-    function loginWithGoogle() {
-      console.log("✅ Login button clicked");
-      const url = new URL("https://accounts.google.com/o/oauth2/v2/auth");
-      url.searchParams.set("client_id", CLIENT_ID);
-      url.searchParams.set("redirect_uri", REDIRECT_URI);
-      url.searchParams.set("response_type", RESPONSE_TYPE);
-      url.searchParams.set("scope", SCOPE);
-      url.searchParams.set("prompt", "consent");
-
-      window.location = url.toString();
-    }
-
-    function decodeJWT(token) {
-      try {
-        const parts = token.split('.');
-        const base64Url = parts[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
-          '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-        ).join(''));
-        return JSON.parse(jsonPayload);
-      } catch (err) {
-        return { error: "Invalid JWT token" };
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const loginButton = document.getElementById("googleLoginBtn");
-      if (loginButton) {
-        console.log("✅ Attaching handler to button");
-        loginButton.addEventListener("click", loginWithGoogle);
-      } else {
-        console.error("❌ Button not found");
-      }
-
-      // Parse token from URL fragment after redirect
-      if (window.location.hash) {
-        const params = new URLSearchParams(window.location.hash.substring(1));
-        const idToken = params.get("id_token");
-        const accessToken = params.get("access_token");
-
-        let output = "";
-
-        if (idToken) {
-          const decoded = decodeJWT(idToken);
-          output += "🔓 Decoded ID Token:\n" + JSON.stringify(decoded, null, 2) + "\n\n";
-        }
-
-        if (accessToken) {
-          output += "🔐 Access Token:\n" + accessToken;
-        }
-
-        document.getElementById("output").innerText = output;
-      }
-    });
-  </script>
+  <!-- ✅ Your external JS file -->
+  <script src="nav_bar.js"></script>
 </body>
 </html>
