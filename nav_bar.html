@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -22,15 +22,15 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom border-body sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">
-                <img src="./sk_brand.png" alt="Logo" width="80" height="40" class="d-inline-block align-text-top">  
+                <img src="./sk_brand.png" alt="Logo" width="80" height="40" class="d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div  class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-1 ">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-1">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                     </li>
@@ -41,7 +41,7 @@
                         <a class="nav-link" href="./project.html">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-primary" onclick="loginWithGoogle()">Login with Googles</button>
+                        <button class="btn btn-primary" id="googleLoginBtn">Login with Google</button>
                     </li>
                 </ul>
             </div>
@@ -93,25 +93,6 @@
         }
 
         window.onload = () => {
-            if (window.location.hash) {
-                const params = new URLSearchParams(window.location.hash.substring(1));
-                const idToken = params.get("id_token");
-                const accessToken = params.get("access_token");
-
-                let output = "";
-
-                if (idToken) {
-                    const decoded = decodeJWT(idToken);
-                    output += "🔓 Decoded ID Token:\n" + JSON.stringify(decoded, null, 2) + "\n\n";
-                }
-
-                if (accessToken) {
-                    output += "🔐 Access Token:\n" + accessToken;
-                }
-
-                document.getElementById("output").innerText = output;
-            }
-        };
-    </script>
-</body>
-</html>
+            // Attach click listener instead of inline onclick
+            const loginButton = document.getElementById("googleLoginBtn");
+            if (loginButton) {
