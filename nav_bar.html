@@ -49,6 +49,58 @@
         </div>
     </nav>
 <!--     Bootstrap CDN -->
+      <script>
+    const CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID';
+    const REDIRECT_URI = window.location.origin;
+    const RESPONSE_TYPE = 'id_token token';
+    const SCOPE = 'openid profile email';
+
+    function loginWithGoogle() {
+      const url = new URL("https://accounts.google.com/o/oauth2/v2/auth");
+      url.searchParams.set("client_id", CLIENT_ID);
+      url.searchParams.set("redirect_uri", REDIRECT_URI);
+      url.searchParams.set("response_type", RESPONSE_TYPE);
+      url.searchParams.set("scope", SCOPE);
+      url.searchParams.set("prompt", "consent");
+
+      window.location = url.toString();
+    }
+
+    function decodeJWT(token) {
+      try {
+        const parts = token.split('.');
+        const base64Url = parts[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
+          '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+        ).join(''));
+        return JSON.parse(jsonPayload);
+      } catch (err) {
+        return { error: "Invalid JWT token" };
+      }
+    }
+
+    window.onload = () => {
+      if (window.location.hash) {
+        const params = new URLSearchParams(window.location.hash.substring(1));
+        const idToken = params.get("id_token");
+        const accessToken = params.get("access_token");
+
+        let output = "";
+
+        if (idToken) {
+          const decoded = decodeJWT(idToken);
+          output += "🔓 Decoded ID Token:\n" + JSON.stringify(decoded, null, 2) + "\n\n";
+        }
+
+        if (accessToken) {
+          output += "🔐 Access Token:\n" + accessToken;
+        }
+
+        document.getElementById("output").innerText = output;
+      }
+    };
+  </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
