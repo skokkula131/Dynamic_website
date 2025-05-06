@@ -41,7 +41,7 @@
                         <a class="nav-link" href="./project.html">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-primary" id="googleLoginBtn">Login with Googlex</button>
+                        <button class="btn btn-primary" id="googleLoginBtn">Login with Googler</button>
                     </li>
                 </ul>
             </div>
@@ -96,3 +96,29 @@
             // Attach click listener instead of inline onclick
             const loginButton = document.getElementById("googleLoginBtn");
             if (loginButton) {
+                loginButton.addEventListener("click", loginWithGoogle);
+            }
+
+            // Decode JWT on redirect
+            if (window.location.hash) {
+                const params = new URLSearchParams(window.location.hash.substring(1));
+                const idToken = params.get("id_token");
+                const accessToken = params.get("access_token");
+
+                let output = "";
+
+                if (idToken) {
+                    const decoded = decodeJWT(idToken);
+                    output += "🔓 Decoded ID Token:\n" + JSON.stringify(decoded, null, 2) + "\n\n";
+                }
+
+                if (accessToken) {
+                    output += "🔐 Access Token:\n" + accessToken;
+                }
+
+                document.getElementById("output").innerText = output;
+            }
+        };
+    </script>
+</body>
+</html>
